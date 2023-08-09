@@ -1,0 +1,6 @@
+关键字c语言规定的一些可以直接使用的东西
+自定义的变量名等不能与其冲突
+如 int auto break case char const continue default
+do double else enum extern float for goto if int long
+register return short signed sizeof static struct
+switch typedef union unsigned void volatile while

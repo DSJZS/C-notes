@@ -1,0 +1,22 @@
+关键break的作用
+
+*可用于跳出 switch语句
+如
+	int i = 0;
+	switch (i)
+	{
+	case 0:
+		printf("ok");
+		break;
+	case 1:
+		printf("ok");	
+	}
+	// 输出 ok
+
+*可用于跳出 while for do...while三大循环语句
+	while (1)
+	{
+		printf("ok\n");
+		break;
+	}
+	// 输出 ok

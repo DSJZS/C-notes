@@ -1,0 +1,35 @@
+1.结构体变量访问成员：
+结构体变量访问成员是通过点操作符(.)访问的。点操作符接受两个操作数。例如：
+struct Stu
+{
+	char name[20];
+	int age;
+	char sex[5];
+	char id[20];
+};
+int main()
+{
+	struct Stu s = {"小明",18,"男",10086};
+	printf("%d\n",s.age);
+	return 0;
+}
+
+
+2.结构体指针访问指向变量的成员：
+结构体指针访问指向变量的成员是通过箭头操作符(->)访问的。箭头操作符接受两个操作数。例如：
+struct Stu
+{
+	char name[20];
+	int age;
+	char sex[5];
+	char id[20];
+};
+int main()
+{
+	struct Stu s = {"小明",18,"男",10086};
+	struct Stu* ps = &s;
+	printf("%d\n",ps->age);
+	return 0;
+}
+
+*结构体传参一般而言传址较好，更节省空间，防止栈溢出

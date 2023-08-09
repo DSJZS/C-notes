@@ -1,0 +1,18 @@
+初始化rand函数使用的随机数发生器种子。
+头文件: stdlib.h
+
+函数声明：
+void srand(unsigned int seed)
+
+
+返回值：无返回值
+
+调用格式:srand(seed)
+参数seed是一个整型值，用于伪随机数生成算法播种
+
+说明：
+srand()用来设置rand()产生随机数时的随机数种子。参数seed是整数，输入一个变化的值可以使rand函数变得随机起来,通常可以利用time(0)或geypid(0)的返回值作为seed。
+
+举例：srand((unsigned int)time(NULL));
+
+注意：一般每次执行程序只需在main函数等地方执行一次srand函数就行了

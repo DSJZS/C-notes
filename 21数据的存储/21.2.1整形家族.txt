@@ -1,0 +1,14 @@
+整形家族( []中内容可省略 )：
+char:
+	unsigned char
+	signed char
+short:
+	unsigned short [int]
+	signed short [int]
+int:
+	unsigned int
+	signed int
+long:
+	unsigned long [int]
+	signed long [int]
+

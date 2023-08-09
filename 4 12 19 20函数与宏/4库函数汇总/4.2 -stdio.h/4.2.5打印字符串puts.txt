@@ -1,0 +1,11 @@
+用于打印字符串
+头文件: stdio.h
+
+调用格式:
+puts(str);  // str 为字符串名
+
+
+举例：
+	char str[100];
+	gets(str); // 输入 hello world 
+	puts(str); // 输出 hello world

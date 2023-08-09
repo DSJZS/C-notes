@@ -1,0 +1,26 @@
+struct tag
+{
+	member-list;
+}variable-list;
+
+member-list:成员列表:说明有哪些结构体成员，可以是各种类                     型的变量如指针，数组，甚至是其它结                     构体
+variable-list:变量列表:用于创建该结构体类型的全局变量
+如：
+struct Stu
+{
+	char name[20];
+	int age;
+	char sex[5];
+	char id[20];
+}s1,s2,s3; // s1,s2,s3为全局变量
+
+
+*注意：声明结构体时可以配合typedef重命名简化结构体类型
+如
+typedef struct Stu
+{
+	char name[20];
+	int age;
+	char sex[5];
+	char id[20];
+}Stu; // 将原类型struct Stu重命名为Stu,而非创建Stu变量

@@ -1,0 +1,79 @@
+回调函数就是一个通过函数指针调用的函数
+如果你把函数的指针作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，我们就说这是回调函数
+
+当你写一个计算器时，有如下代码
+void menu()
+{
+	printf("***********************\n");
+	printf("** 1.add       2.sub **\n");
+	printf("** 3.mul       4.div **\n");
+	printf("** 5.mod       0.quit**\n");
+	printf("***********************\n");
+}
+
+int Add(int x, int y)
+{
+	return x + y;
+}
+int Sub(int x, int y)
+{
+	return x - y;
+}
+int Mul(int x, int y)
+{
+	return x * y;
+}
+int Div(int x, int y)
+{
+	return x / y;
+}
+int Mod(int x, int y)
+{
+	return x % y;
+}
+
+void Calc(int(*pf)(int, int))
+{
+	int x = 0;
+	int y = 0;
+	printf("请输入两个操作数:>");
+	scanf("%d%d", &x, &y);
+	printf("结果为 %d\n", pf(x, y));
+}
+
+int main() 
+{
+	int input = 0;
+	do{
+		menu();
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			Calc(Add);
+			break;
+		case 2:
+			Calc(Sub);
+			break;
+		case 3:
+			Calc(Mul);
+			break;
+		case 4:
+			Calc(Div);
+			break;
+		case 5:
+			Calc(Mod);
+			break;
+		case 0:
+			printf("quit\n");
+			break;
+		default:
+			printf("error\n");
+			break;
+		}
+	} while (input);
+	return 0;
+}
+
+其中Calc函数调用Add、Sub、Mul、Div、Mod这5个函数时的动作被称为“回调”
+而这5个函数此时就是回调函数

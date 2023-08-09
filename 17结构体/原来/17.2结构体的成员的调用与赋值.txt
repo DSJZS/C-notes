@@ -1,0 +1,23 @@
+首先创建一个结构体类型及其变量
+struct BOOK
+{
+	char name[20] // 用于储存书名的字符数组
+	short price； // 用于储存价格的短整型
+};
+
+struct BOOK book = {"书名"， 55};
+如果我们要调用它成员的内容或者对其成员进行赋值
+可以用操作符 . 或者 ->
+
+*使用操作符 .
+    book.price = 100;
+如  printf("%s %d", book.name, book.price);
+    // 输出 书名 100
+
+*使用操作符 ->
+如  struct BOOK* pbook = &book;
+    pbook->price = 100;
+    printf("%s %d", pbook->name, pbook->price);
+    // 输出 书名 100
+    // 以上操作相当于  
+    // printf("%s %d", pbook->name, (*pbook).price);

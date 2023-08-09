@@ -1,0 +1,14 @@
+用于接受键盘输入的字符串，并反回该字符串的 首地址(输入失败返回NULL)，需按回车键，会显示输入字符串是什么
+头文件: stdio.h
+
+调用格式:
+gets(str);  // str 为字符串名
+
+
+*注意
+空格或者不会分割输入的数据
+
+举例：
+	char str[100];
+	gets(str); // 输入 hello world 
+	printf("%s\n", str); // 输出 hello world

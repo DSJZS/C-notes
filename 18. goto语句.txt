@@ -1,0 +1,31 @@
+goto语句可利用标记随意的在程序中跳转，这会带来便利(跳出多个循环)，也会带来危险(比如莫名的循环等逻辑错误)
+编程中要尽可能的不使用
+
+使用方法：
+int main()
+{
+again: // 标记
+    printf("hello world\n");
+    goto again; // 跳转到 again 标记
+    return 01;
+}
+// 以上例子即体现了goto语句的作用，也体现了其危险性，比如这个例子里会死循环
+
+最常见的正确的用途：跳出多个嵌套的循环
+举例：
+int main()
+{
+    for(...)
+	for(...)
+	    for(...)
+	    {
+		if(disaster)
+		    goto error;
+	    }
+    error:
+	if(disaster)
+	    // 处理错误情况
+    return 0;
+}
+// disaster 译为 灾难
+// 通常我们需要用多个break语句在复杂的逻辑下跳出，而goto语句能便捷的直接跳出

@@ -1,0 +1,13 @@
+struct Stu
+{
+	char name[20];
+	int age;
+	char sex[5];
+	char id[20];
+};
+
+创建：
+struct Stu s;
+
+初始化(创建的同时赋值，用大括号):
+struct Stu s = {"小明",18,"男",10086};

@@ -1,0 +1,8 @@
+浮点型家族：
+float
+double
+
+*注意:浮点数默认都是 signed，没有 unsigned
+无论是 signed float、signed double 
+还是 unsigned float、unsigned double
+都是不规范的写法

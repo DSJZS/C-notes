@@ -1,0 +1,31 @@
+单目操作符sizeof用于计算
+变量，类型或者数组所占空间的大小（单位是字节）
+其即使操作符也是关键字，是唯一一个以单词形式存在的关键字
+
+用法
+  - sizeof(变量/类型)
+    如 int a;
+       printf("%d", sizeof(a));   // 输出4
+       printf("%d", sizeof(int)); // 输出4
+
+特殊点
+  - sizeof计算变量大小时可以省略括号()
+    计算类型大小时不行
+    如 int a;
+       printf("%d", sizeof a);   // ok
+       printf("%d", sizeof int); // error
+  - sizeof计算字符串大小时输入字符串名
+    如 int arr[10];
+       printf("%d", sizeof(arr)); // 输出40
+       （此处括号也可以省略）
+  - sizeof输入字符串名时计算的是字符串大小
+    与上一条例子一样
+
+*注意1：sizeof后的表达式不会执行
+如	int a = 10;
+	printf("%d", sizeof(a += 10)); // 输出 4
+	printf("%d", a); // 输出 10
+
+*注意2：sizeof返回的结果为无符号数，注意隐式类型转换
+(比如int类型的-1与其返回值比大小时会将-1的类型转换为
+unsigned int，导致结果错误)

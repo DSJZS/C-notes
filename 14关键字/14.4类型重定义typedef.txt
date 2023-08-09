@@ -1,0 +1,8 @@
+关键字typedef的用处是类型重定义
+可以将一个变量定义为一个定的变量
+新的变量与这个变量等价
+语法为 typedef 原变量 新变量;
+如 typedef unsigned int u_int;
+   unsigned int num1;
+   u_int num2;
+   // 此时num1,num2类型相同

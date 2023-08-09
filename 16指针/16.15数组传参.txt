@@ -1,0 +1,14 @@
+一维数组传参：
+一维数组传参时,形参数组大小指定或者不指定都可以，指定的大小与实际传入的数组大小不一致也行，或者直接用指针做形参，因为本质上传入的只不过是首元素地址
+void test(int arr[]);  
+void test(int arr[10]);
+void test(int* arr); 
+void test(int* arr[20]); // 二级指针数组传参
+void test(int** arr);  // 二级指针数组传参
+
+二维数组传参：
+二维数组传参时,形参数组的行大小可以省略或者与实际不同，但列大小不能省略且要与实际一致
+void test(int arr[3][5]);
+void test(int arr[][5]);
+void test(int arr[][]); // error
+void test(int (*arr)[5]);

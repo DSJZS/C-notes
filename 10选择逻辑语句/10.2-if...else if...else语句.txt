@@ -1,0 +1,63 @@
+-if...else if...else语句
+是个选择语句，用于描述选择逻辑
+
+*语法结构:
+if(表达式)
+{ (语句) }
+else if(表达式)
+{ (语句) }
+...
+else if(表达式)
+{ (语句) }
+else 
+{ (语句) }
+
+一个选择语句至少要有一个 if 分支
+else if 分支可以没有或者有多个
+最多有一个 else 分支
+if 分支在最上面；else if分支在if分支或者其它 else if分支下面； else 分支在所有分支的下面，即最下面
+程序执行时会判断每个分支的表达式是否为真
+如果为真则执行该分支下的代码块{}（或者单个语句）
+如果存在else分支并且if分支和else if分支均为假
+则会执行 else 分支
+举例：
+        int a = 5;
+	if(a == 5)
+	{
+	       printf("%d", 1);
+	       printf("ok");
+	}
+        // 结果为 1 ok
+
+*注意
+*如果有好几分支为真，则执行最上面的那一个语句
+如      int a = 5;
+	if(a == 5)
+            printf("%d", 1);
+	else if(a <= 5)
+            printf("%d", 2);
+        else
+            printf("%d", 3);
+        // 结果为 1   
+*else if分支和else分支服从就近原则
+与最靠近它的且没有与其他else if分支和else分支配对的
+一个if分支配对
+如	int a = 0;
+	int b = 2;
+	if (a==1)
+	if (b == 2)
+		printf("hehe\n");
+	else  // 与第二个if配对
+		printf("haha\n");
+        // 无输出
+又如
+	if (a==1)
+	if (b == 2)
+		printf("hehe\n");
+	else if (a == 0)
+		printf("hoho\n");
+	else
+		printf("com\n");
+	else // 与第一个if配对
+		printf("haha\n"); 
+	// 输出 haha

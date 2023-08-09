@@ -1,0 +1,5 @@
+指针类型(常见的):
+int*
+char*
+float*
+void*

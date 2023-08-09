@@ -1,0 +1,21 @@
+用于给可能出现的错误报错
+头文件: #include<assert.h>
+
+调用格式: assert(exp);
+
+说明： exp 为表达式，为假则报错，为真无事发生
+
+举例：
+int my_strlen(const char* str)
+{
+	int count = 0;
+	assert(str != NULL);
+
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+

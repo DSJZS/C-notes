@@ -1,0 +1,14 @@
+函数和函数之间可以嵌套调用
+如
+void new_line()
+{
+    printf("hehe\n");
+}
+void three_line()
+{
+    int i = 0;
+    for(i = 0; i<3 ; i++)
+	{   
+	   new_line(); 
+	}
+}

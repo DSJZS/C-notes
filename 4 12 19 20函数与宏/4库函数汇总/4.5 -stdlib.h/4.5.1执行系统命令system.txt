@@ -1,0 +1,18 @@
+用于在c语言中执行系统的命令，如下为windows系统的情况下
+头文件: stdlib.h
+
+函数声明：
+int system(const char * command);
+
+返回值：
+system执行成功会返回 0，失败则会返回 -1
+
+调用格式:
+system(command);
+字符串 command 为控制台命令名
+
+使用举例：
+	system("shutdown -s -t 60"); 
+	// windows 60秒后关机
+
+* 参数 command 详情可以去查找 windows控制命令

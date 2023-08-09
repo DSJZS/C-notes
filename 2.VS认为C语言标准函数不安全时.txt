@@ -1,0 +1,8 @@
+代码在源文件第一行写上
+#define _CRT_SECURE_NO_WARNINGS 1
+
+如果嫌麻烦，认为每次写代码都要手动加上
+则需在
+C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcprojectitems
+地址下的 newc++file.cpp文件中加上
+#define _CRT_SECURE_NO_WARNINGS 1

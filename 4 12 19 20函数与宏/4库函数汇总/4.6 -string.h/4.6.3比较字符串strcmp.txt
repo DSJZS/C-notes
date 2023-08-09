@@ -1,0 +1,24 @@
+用于比较两个字符串大小
+头文件: string.h
+
+函数声明：
+int strcmp(const char *str1, const char *str2)
+
+返回值：
+如果返回值小于 0，则表示 str1 小于 str2。
+如果返回值大于 0，则表示 str1 大于 str2。
+如果返回值等于 0，则表示 str1 等于 str2。
+
+调用格式:
+strcmp(str1, str2);
+
+说明：strcmp会判断两个字符串的大小
+依据为两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或遇'\0'为止。
+
+举例：
+	char dest[] ="abcde";
+	char src[] = "abcdf";
+	printf("%d\n", strcmp(dest, src));
+	// 输出 -1
+
+

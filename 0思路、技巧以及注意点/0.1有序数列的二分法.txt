@@ -1,0 +1,30 @@
+二分法是在顺序排列数组中快速找到一个数字位置的方法
+通过"对半砍"的形式，它很快就能锁定目标(如果目标存在)
+(如果目标存在，顺序数组有n个数)它最多判断 log₂n 次
+
+c语言举例(从小到大的一个数列查找)：
+
+int arr[10] = {1,2,3,4,5,6,7,8,9,10 };//顺序数组
+int sz = sizeof(arr) / sizeof(arr[0]);//得出数组有几个数
+int left = 0; // 左下标
+int right = sz - 1;  // 右下标
+int k = 7; // 要找的目标数字
+while (left<=right)
+{
+	int mid = (left + right) / 2; // 中间下标
+	if (arr[mid] > k)
+	{
+		right = mid - 1;
+	}
+	else if (arr[mid] < k)
+	{
+		left = mid + 1;
+	}
+	else
+	{
+		printf("找到了，下标为： %d\n", mid);
+		break;
+	}
+}
+if (left>right)// 没有目标数字时
+	printf("找不到\n");
