@@ -1,1 +1,13 @@
 函数指针数组指针--即指向函数指针数组的指针
+
+如果有如下四个函数 
+int Add( int, int); 
+int Sub( int, int); 
+int Mul( int, int); 
+int Div( int, int); 
+
+可创建并初始化一个函数数值指针存放它们的指针
+int (*pfArr[4])( int, int) = { Add, Sub, Mul, Div};
+
+如果我们此时还想创建一个指针来存放这个数组，那么此时，这个指针就是  函数指针数组指针，如下
+int (*(*ppfArr)[4])( int, int) = &pfArr;

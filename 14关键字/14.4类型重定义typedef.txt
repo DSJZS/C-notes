@@ -6,3 +6,10 @@
    unsigned int num1;
    u_int num2;
    // 此时num1,num2类型相同
+
+*注意：函数指针等类型重定义参考如下
+如将 void(*)(int) 简化为 pfun_t
+
+typedef void(*pfun_t)(int);
+
+pfun_t signal( int, pfun_t);	// signal是一个函数 返回类型是 void(*)(int) ,参数的类型是 int 和 void(*)(int) 

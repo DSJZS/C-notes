@@ -19,3 +19,5 @@ printf("%d", strlen(str));
 char str[100] = { '1', '2', '\0', '3', '4', '\0' };
 printf("%d", strlen(str));
 // 输出 2
+
+*注意
