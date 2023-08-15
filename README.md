@@ -9,5 +9,5 @@ My native language is Chinese, so these notes are written in Chinese.
 Whether you're a pro or a newbie, whether your native language is Chinese or not, you're welcome to give me constructive comments (if you want to).  
 无论你是老手还是新手，不管你的母语是不是中文，欢迎你给我建设性的意见（如果你想的话）。
 
-That's probably all there is to say.
+That's probably all there is to say.  
 大概就这么多话了。
