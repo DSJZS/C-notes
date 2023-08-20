@@ -1,0 +1,2 @@
+Visual Studio 2010\VC\crt\src 路径下的文件
+本人电脑：D:\software\Visual Studio 2010\VC\crt\src

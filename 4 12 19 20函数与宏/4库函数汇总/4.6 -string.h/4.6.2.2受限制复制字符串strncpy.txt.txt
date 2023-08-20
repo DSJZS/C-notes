@@ -1,0 +1,40 @@
+用于将一个字符串的前n个字符复制到另一个字符串的前n个字符
+头文件: string.h
+
+函数声明：
+char *strncpy(char *dest, const char *src, size_t n)
+
+返回值：
+该函数返回一个指向最终的目标字符串 dest 的指针。
+
+调用格式:
+strcpy(目标函数名，复制函数名, 复制字符个数);
+
+说明：将后者字符串的前n个字符内容复制到前者字符串的前n个字符
+n如果大于src字符串字符个数(结束标志前的)，且小于dest字符串字符个数，strncpy函数复制完src全部字符(结束标志前的)后，多余的部分追加为'\0',直到赋值n个字符
+
+举例：
+	char dest[6] = "67890";
+	char src[6] = "12345";
+	strncpy(dest, src, 3);
+	printf("%s\n", dest);
+	// 输出 12390
+
+*注意：目标字符串的长度要大于等于复制字符个数
+*注意：dest 不要指向一个常量字符串，常量字符串不可修改
+
+自己编写的版本：
+char* my_strncpy(char *dest, const char *src, int n)
+{
+	char* ret = dest;
+	assert(dest!=NULL);
+	assert(src!=NULL);
+	while(n && (*dest++ = *src++))
+	{
+		n--;
+	}
+	if(n)
+		while(--n)
+			*dest++ = '\0';
+	return ret;
+}

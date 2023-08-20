@@ -21,4 +21,14 @@ strcmp(str1, str2);
 	printf("%d\n", strcmp(dest, src));
 	// 输出 -1
 
+自己编写的版本：
+int my_strcmp(const char * str1 ,const char * str2)
+{
+	while((*str1 == *str2)&&(*str1!='\0')&&(*str2!='\0'))
+	{
+		str1++;
+		str2++;
+	};
+	return (int)(*str1) - (int)(*str2);
+}
 
