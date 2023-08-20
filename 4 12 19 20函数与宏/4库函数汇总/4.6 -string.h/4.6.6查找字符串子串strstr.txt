@@ -1,0 +1,23 @@
+在一个字符串中查找第一次出现 另一个字符串(子串) 的位置(不包含终止符 '\0')。也能判断一个字符串是否为另一个字符串的子串
+头文件: string.h
+
+函数声明：
+char *strstr(const char *haystack, const char *needle);
+
+返回值：
+该函数返回在 haystack 中第一次出现 needle 字符串的位置，如果未找到则返回 null。
+
+调用格式:
+strstr( haystack, needle);
+
+说明：
+haystack 	-- 要被检索的 C 字符串。
+needle 	-- 在 haystack 字符串内要搜索的小字符串。
+
+举例：
+	char str1[] = "ABCDE";
+	char str2[] = "DE";
+	char* ret = strstr(str1,str2);
+	if(ret != NULL)
+		printf("%s\n", ret); // 输出 DE
+

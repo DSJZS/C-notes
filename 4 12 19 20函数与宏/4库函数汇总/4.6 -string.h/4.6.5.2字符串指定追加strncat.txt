@@ -1,0 +1,28 @@
+将一个字符串的前 n 个字符追加到另一个字符串的末尾
+头文件:  string.h
+
+函数声明：
+char *strncat(char *dest, const char *src, size_t count);
+
+返回值：
+该函数返回一个指向最终的目标字符串 dest 的指针。
+
+调用格式:
+strcat( dest,  src);
+
+说明：
+dest	 -- 指向目标数组，该数组包含了一个 C 字符串，且足够容纳追加后的字符串。
+src 	-- 指向要追加的字符串。
+n 	-- 要追加的最大字符数。
+
+src指向字符串会从dest指向字符串的结束标志开始逐个追加字符，直到追加完src字符串的第n个字符为止, 并且在追加后的目标字符串的末尾添加结束标志 '\0'
+它相比 strcat 函数的优势是可以自定义追加的字符数，可以使一个字符串追加自己到自己的末尾
+劣势是多了一个参数
+
+举例：
+	char str[256] = "ABCDE";
+	int len = strlen(str);
+	printf("%s\n",strncat(str,str,len)); // 输出 ABCDEABCDE	
+
+注意：
+1.一个字符串它的大小要足够容纳追加后的字符串
