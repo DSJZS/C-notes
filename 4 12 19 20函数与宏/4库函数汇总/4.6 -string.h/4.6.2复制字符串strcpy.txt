@@ -21,3 +21,13 @@ strcpy(目标函数名，复制函数名);
 
 *注意：目标字符串的长度要大于等于复制字符串
 *注意：dest 不要指向一个常量字符串，常量字符串不可修改
+
+自己编写的版本：
+char* my_strcpy(char *dest, const char *src)
+{
+	char* ret = dest;
+	assert(dest!=NULL);
+	assert(src!=NULL);
+	while(*dest++ = *src++);
+	return ret;
+}

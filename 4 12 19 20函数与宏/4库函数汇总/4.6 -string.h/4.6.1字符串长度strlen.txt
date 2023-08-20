@@ -23,3 +23,14 @@ printf("%d", strlen(str));
 // 输出 2
 
 *注意：返回值是 size_t 也就是一个无符号整型
+
+自己编写的版本：
+int my_strlen(char * str)
+{
+	int count = 0;
+	assert(str!=NULL);
+
+	while(*str++)
+		count++;
+	return count;
+}
