@@ -2,17 +2,17 @@
 头文件: string.h
 
 函数声明：
-char *strstr(const char *haystack, const char *needle);
+char *strstr(const char * str1, const char * str2);
 
 返回值：
-该函数返回在 haystack 中第一次出现 needle 字符串的位置，如果未找到则返回 null。
+该函数返回在 str1 中第一次出现 str2 字符串的位置，如果未找到则返回 null。
 
 调用格式:
-strstr( haystack, needle);
+strstr( str1, str2);
 
 说明：
-haystack 	-- 要被检索的 C 字符串。
-needle 	-- 在 haystack 字符串内要搜索的小字符串。
+str1		-- 要被检索的 C 字符串。
+str2	 	-- 在 str1 字符串内要搜索的小字符串。
 
 举例：
 	char str1[] = "ABCDE";
@@ -21,3 +21,47 @@ needle 	-- 在 haystack 字符串内要搜索的小字符串。
 	if(ret != NULL)
 		printf("%s\n", ret); // 输出 DE
 
+*注意：如果有多个子串，只会返回第一个子串的位置
+
+自己编写的版本：
+-第一版
+char * my_strstr(const char *str1, const char *str2)
+{
+	int s1Sz = strlen(str1);
+	int s2Sz = strlen(str2);
+	if(*str2 == '\0')
+		return (char*)str1;
+	if(s1Sz<s2Sz)
+		return NULL;
+	while( (*str1) && (s1Sz>=s2Sz) )
+	{
+		if( !(strncmp((char*)str1,str2,s2Sz)) )
+			return (char*)str1;
+		++str1,--s1Sz;
+	}
+	return NULL;
+}
+
+-第二版
+char * my_strstr(const char *str1, const char *str2)
+{
+	char* ret = (char*)str1;
+	char *s1, *s2;
+	if(!*str2)
+		return (char*)str1;
+	while(*ret)
+	{
+		s1 = ret;
+		s2 = (char*)str2;
+		while((*s1)&&(*s2)&&(*s1==*s2))
+		{
+			++s1,++s2;
+		}
+		if(!*s2)
+			return ret;
+		if(!*s1)
+			return NULL;
+		ret++;
+	}
+	return NULL;
+}

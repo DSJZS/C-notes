@@ -13,7 +13,7 @@ int strcmp(const char *str1, const char *str2)
 strcmp(str1, str2);
 
 说明：strcmp会判断两个字符串的大小
-依据为两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或遇'\0'为止。
+依据为两个字符串自左向右逐个字符相比（按ASCII值大小相比较），直到出现不同的字符或两个字符串同时遇到'\0'为止。
 
 举例：
 	char dest[] ="abcde";
@@ -24,11 +24,12 @@ strcmp(str1, str2);
 自己编写的版本：
 int my_strcmp(const char * str1 ,const char * str2)
 {
-	while((*str1 == *str2)&&(*str1!='\0')&&(*str2!='\0'))
+	while(*str1 == *str2)
 	{
-		str1++;
-		str2++;
-	};
+		if(*str1 == '\0')
+			return 0;
+		++str1,++str2;
+	}
 	return (int)(*str1) - (int)(*str2);
 }
 
