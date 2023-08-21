@@ -37,5 +37,43 @@ strtok函数的第一个参数为NULL，函数将在同一个字符串中被保�
 1. strtok函数会改变被操作的字符，所以一般会使用临时拷贝的可修改字符串
 2. sep字符串中的分隔符不分先后顺序，也并非一次性的
 
-自己编写的版本：
+建议：
+可以与 for语句 配合，如举例部分的列子可这么写
+char* tmp = NULL;
+for( tmp = strtok(str,sep) ; tmp != NULL ; tmp =  strtok(NULL,sep))
+	printf("%s\n", tmp);
 
+自己编写的版本：
+char* my_strtok(char*str, const char* sep)
+{
+	static char* ret = NULL;
+	char *s1,*s2;
+	if(str != NULL)
+		ret = str;
+	else if( (str==NULL) && (*ret=='\0') )
+		return NULL;
+	s1 = ret;
+	while(*s1 != '\0')
+	{
+		s2 = (char*)sep;
+		while(*s2 != '\0')
+		{
+			if(*s1 == *s2)
+			{
+				char* tmp = ret;
+				*s1 = '\0';
+				ret = s1+1;
+				return tmp;
+			}
+			s2++;
+		}
+		s1++;
+	}
+	if(*s1 == '\0')
+	{
+		char* tmp = ret;
+		ret = s1;
+		return tmp;
+	}
+	return NULL;
+}
