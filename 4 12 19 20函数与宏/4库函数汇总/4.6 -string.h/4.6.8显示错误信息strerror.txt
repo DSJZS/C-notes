@@ -1,0 +1,32 @@
+返回错误码所对应的错误信息
+头文件: 
+string.h
+
+函数声明：
+char *strerror(int errnum);
+
+返回值：
+该函数返回一个指向错误字符串的指针，该错误字符串描述了错误 errnum。
+
+调用格式:
+strerror(  errnum);
+
+说明：
+errnum -- 错误号，通常为 errno ( errno详情见 errno.h 头文件下的内容 )。
+
+
+举例：
+	char* str = strerror(errno);
+	printf("%s\n", str); // 如果当前无任何错误，则输出   No error
+
+注意：
+1.该函数一般搭配 errno 全局变量使用，要使用 errno 全局变量需要头文件 errno.h
+
+
+建议：
+搭配 errno 全局变量使用
+
+自己编写的版本：
+一辈子写不出来 ，0，
+
+该模板应用于 2023.8.21 20:25后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )
