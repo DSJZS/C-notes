@@ -1,0 +1,36 @@
+将一个字符串的前n个字符与另一个字符串的前n个字符进行比较
+头文件: string.h   or   memory.h
+
+函数声明：
+int memcmp(const void *str1, const void *str2, size_t n);
+
+返回值：
+如果返回值 < 0，则表示 str1 小于 str2。
+如果返回值 > 0，则表示 str1 大于 str2。
+如果返回值 = 0，则表示 str1 等于 str2。
+
+调用格式:
+memcmp( str1,  str2,   n);
+
+说明：
+str1 	-- 	指向内存块的指针。
+str2 	--	 指向内存块的指针。
+n 	--	 要被比较的字节数。
+
+举例：
+	int arr1[3] = {1,2,3};
+	int arr2[3] = {256,3,4};
+	printf("%d ",memcmp(arr1,arr2,sizeof(arr1))); // 输出 1
+
+注意：
+1.是按照字节为单位来比较
+
+自己编写的版本：
+int my_memcmp(const void *str1, const void *str2, size_t n)
+{
+	if(!n)
+		return 0;
+	while( (n--) && (*(char*)str1 == *(char*)str2))
+		++(char*)str1,++(char*)str2;
+	return (int)(*(char*)str1 - *(char*)str2);
+}

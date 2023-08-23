@@ -1,5 +1,5 @@
 从一个字符串复制n个字符到另一个字符串
-头文件: string.h
+头文件: string.h   or   memory.h
 
 函数声明：
 void *memcpy(void * dest, const void * src , size_t n);
@@ -38,7 +38,7 @@ n		 --	 要被复制的字节数。
 void* my_memmove(void * dest, const void * src , size_t n)
 {
 	void* ret = dest;
-	if((int)dest<(int)src)
+	if(dest<src)
 		while(n--)
 		{
 			*(char*)dest = *(char*)src;

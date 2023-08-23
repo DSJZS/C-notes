@@ -1,5 +1,6 @@
 复制字符 c（一个无符号字符）到参数 str 所指向的字符串的前 n 个字符。
-头文件: string.h
+头文件: 
+string.h   or   memory.h
 
 函数声明：
 void *memset(void *str, int c, size_t n)
