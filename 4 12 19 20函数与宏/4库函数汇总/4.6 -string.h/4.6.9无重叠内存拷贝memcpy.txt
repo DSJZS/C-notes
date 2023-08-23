@@ -1,0 +1,49 @@
+从一个数组复制 n 个字节到另一个数组。
+头文件:  string.h
+
+函数声明：
+void *memcpy(void * dest, const void * src , size_t n);
+
+返回值：
+该函数返回一个指向目标数组 dest 的指针。
+
+调用格式:
+memcpy( dest, src,  n);
+
+说明：
+dest 	-- 	指向用于存储复制内容的目标数组，类型强制转换为 void* 指针。
+src 	-- 	指向要复制的数据源，类型强制转换为 void* 指针。
+n 	-- 	要被复制的字节数。
+C语言标准规定 memcpy函数 只用处理不重叠的内存拷贝即可
+
+举例：
+	int arr1[5] = {1,2,3,4,5};
+	int arr2[5] = {0};
+	int i = 0;
+	memcpy(arr2,arr1,sizeof(arr1));
+	for(i=0;i<5;i++)
+	{
+		printf("%d ",arr2[i]);
+	}
+
+注意：
+1.不要出现重叠内存块的问题
+2.C语言标准规定 memcpy函数 只用处理不重叠的内存拷贝即可 ( 重叠的内存拷贝由memmove函数完成 )
+3. VS编译器下 memcpy函数 和 memmove函数作用一样，也一样可以拷贝重叠的内存( 超额完成标准 )
+
+建议：
+1.建议配合 sizeof 关键字(或操作符)使用
+2.没有重叠内存块问题时，建议用memcpy函数，而不是memmove函数
+
+自己编写的版本：
+void* my_memcpy(void * dest, const void * src , size_t n)
+{
+	void* ret = dest;
+	while(n--)
+	{
+		*(char*)dest = *(char*)src;
+		++(char*)dest;	//dest = (char*)dest + 1;
+		++(char*)src;	//src = (char*)src + 1; 
+	}
+	return ret;
+}
