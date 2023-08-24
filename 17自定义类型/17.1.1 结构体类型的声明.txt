@@ -1,0 +1,46 @@
+结构的声明
+struct tag
+{
+	member-list;
+}variable-list;
+
+struct 	-	结构体关键字
+tag		-	结构体标签( 自定义 )
+member-list-	成员列表( 一个结构体类型声明时，不能用自己本身的类型声明成员 )
+variable-list -	变量列表( 这里创建的变量为全局变量 )
+
+*注意：variable-list 后有一个冒号
+
+如声明一个学生类型( 包含名字、电话、性别 、年龄)
+struct Stu
+{
+	char name[20];
+	char tele[12];
+	char sex[10];
+	int age;
+};
+
+特殊声明：匿名结构体类型( 必须利用变量列表定义变量或者数组才有意义 )
+如下
+struct 
+{
+	int a;
+	char b;
+	float c;
+}x;
+
+struct
+{
+	int a;
+	char b;
+	float c;
+}a[20], *p;
+
+typedef重命名声明：
+typedef struct Stu
+{
+	char name[20];
+	char tele[12];
+	char sex[10];
+	int age;
+}Stu;

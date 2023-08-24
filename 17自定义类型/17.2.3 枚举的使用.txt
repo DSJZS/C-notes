@@ -1,0 +1,18 @@
+1.枚举类型变量
+如有一个三原色枚举类型
+enum Color
+{
+	RED,
+	GREEN,
+	BLUE
+};
+创建一个该枚举类型的变量，并初始化
+enum Color s = RED;
+只能把枚举元素值赋给枚举变量( 如上列的 RED,GREEN,BLUE );，不能把元素的序号值直接赋给枚举变量。
+
+2.使用枚举常量
+在定义了如上的三原色类型后，我们变可以使用枚举元素列表中的枚举常量
+如下
+int c = RED;
+int test[GREEN] = { 0 }；
+printf("%d\n", BLUE );

@@ -1,0 +1,17 @@
+在结构中包含一个类型为该结构本身的成员
+如下
+
+错误案例：一个结构体自己包含与自己类型相同的成员变量，无法确认结构体大小
+struct Node
+{
+	int data;
+	struct Node next;
+};
+
+正确案例：一个结构体自己包含自己，无法确认结构体大小
+struct Node
+{
+	int data;
+	struct Node* next;
+};
+// 参考数据结构中的 链表

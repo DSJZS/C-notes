@@ -1,0 +1,34 @@
+返回结构体成员相当于起始位置的偏移量
+头文件:   stddef.h
+
+宏原型：
+size_t offsetof( structName, memberName );
+
+返回值：
+返回结构体成员相当于起始位置的偏移量
+
+调用格式:
+offsetof( structName, memberName );
+
+说明：
+structName		-	结构体类型名
+memberName	-	结构体成员名( 注意是名字，不是变量 )
+
+举例：
+struct Stu
+{
+	char name[20];
+	char tele[12];
+	char sex[10];
+	int age;
+};
+printf("%d\n", offsetof(struct Stu, tele)); // 输出 20
+
+注意：
+1.注意填的是结构体类型和成员名，不要填成结构体类型和成员变量了
+
+<建议>
+
+自己编写的版本：
+
+该模板应用于 2023.8.21 20:25后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )
