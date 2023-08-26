@@ -1,0 +1,78 @@
+常见错误(简介版，具体举例看下文)：
+1.对NULL进行解引用操作  
+2.对动态内存空间的越界访问  
+3.对非动态内存使用free函数
+4.使用free释放一块动态开辟内存的一部分
+5.对同一块动态内存多次释放
+6.动态开辟内存忘记释放(内存泄漏)
+
+
+常见错误(具体举例)：
+1.对NULL进行解引用操作
+如
+	int* p = (int*)malloc(10*sizeof(int));	
+	int i = 0;
+	for(i=0;i<10;i++)
+	{
+		*(p+i) = i;
+	}
+	free(p);
+	p=NULL;
+上述案例没有检查 malloc函数 的返回值是否为 NULL，如果返回值为NULL，就会面临非法访问
+
+
+
+2.对动态内存空间的越界访问
+如
+	int* p = (int*)malloc(10*sizeof(int));
+	int i = 0;
+	if(p==NULL)
+		printf("%s\n", strerror(errno);
+	else
+	{
+		for(i=0;i<=10;i++)
+		{
+			*(p+i) = i;	// i=10 时会涉及越界fangw
+		}
+	}
+	free(p);
+	p=NULL;
+上述案例中的for循环中访问了从p指针所指向的地址处开始的11个整形，但是malloc开辟的空间中只能存放10个整形，涉及越界访问的问题
+
+
+
+3.对非动态内存使用free函数
+如
+	void test()
+	{
+		int a = 10;
+		int* p = &a;
+		free(p); // error
+	}
+
+
+
+4.使用free释放一块动态开辟内存的一部分
+如
+	int* p = (int*)malloc(10*sizeof(int));	
+	p++;
+	free(p);
+释放之前不要改变指向动态内存空间的指针
+
+
+
+5.对同一块动态内存多次释放
+如
+ 	int* p = (int*)malloc(10*sizeof(int));	
+	free(p);
+	free(p);
+释放后将指针赋值 NULL 可避免此类情况，free函数遇到NULL什么也不会发生
+
+
+
+6.动态开辟内存忘记释放(内存泄漏)
+如在一个函数内开辟一块内存空间却不释放
+	void test()
+	{
+		 int* p = (int*)malloc(10*sizeof(int));
+	}

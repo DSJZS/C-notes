@@ -1,0 +1,42 @@
+释放在堆区上开辟的内存空间
+头文件:  stdlib.h   or   malloc.h
+
+函数声明：
+void free(void* memblock);
+
+返回值：无返回值
+
+调用格式:
+free(  memblock);
+
+说明：
+memblock	--	一个指向由malloc、calloc 或 realloc开辟的内存空间的指针
+
+如果参数memblock指向的内存空间是为开辟的，那么 free函数的行为是未定义的
+如果参数memblock是NULL，则函数什么都不会发生
+
+举例：
+	int* p = (int*)malloc(10*sizeof(int));
+	int i = 0;
+	if(p != NULL)
+	{
+		for(i=0;i<10;i++)
+		{
+			p[i] = i;
+		}
+		for(i=0;i<10;i++)
+		{
+			printf("%d ",p[i]); // 输出 0 1 2 3 4 5 6 7 8 9
+		}
+	}
+	free(p);
+
+注意：
+1.不要释放不是由malloc、calloc 或 realloc开辟的内存空间，造成非法访问的问题
+2.malloc、calloc 或 realloc开辟的内存空间使用完后必须用 free 函数释放内存空间，避免内存泄漏
+3.在free 释放一个指针指向的内存空间后，应该给这个指针赋值为NULL，避免空指针问题
+
+
+自己编写的版本：
+一辈子写不出
+该模板应用于 2023.8.21 20:25后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )

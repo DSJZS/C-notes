@@ -1,0 +1,5 @@
+一共四个函数：
+malloc
+free
+calloc
+realloc
