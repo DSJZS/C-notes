@@ -1,0 +1,36 @@
+函数的头文件: stdio.h
+
+函数的作用：
+关闭一个文件
+
+函数声明：
+int fclose(FILE *stream);
+
+参数说明：
+stream 		--	 这是指向 FILE 对象的指针，该 FILE 对象指定了要被关闭的流。
+
+返回值：
+如果文件成功关闭，则该方法返回零。如果失败，则返回 EOF。
+
+调用格式:
+fclose( stream);
+
+举例：
+	FILE* pf = fopen("..\\FILE_TEST\\test.txt","r");
+	if(pf==NULL)
+	{
+		printf("%s\n",strerror(errno));
+		return 0;
+	}
+	fclose(pf);
+	pf = NULL;
+
+注意事项：
+1.关闭文件后注意给文件指针赋值为NULL
+
+建议：
+无
+
+自己编写的版本：
+
+该模板应用于 2023.8.27 22:00后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )

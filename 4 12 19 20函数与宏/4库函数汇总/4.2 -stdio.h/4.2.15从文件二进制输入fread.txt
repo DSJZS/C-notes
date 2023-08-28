@@ -1,0 +1,48 @@
+函数的头文件: stdio.h
+
+函数的作用：
+从给定流 stream 读取数据到 ptr 所指向的数组中，并把位置标识符往前移动。
+该函数既可以操作 二进制文件 , 又可以操作 文本文件 
+
+函数声明：
+size_t fread(void *ptr, size_t size, size_t num, FILE *stream);
+
+参数说明：
+ptr 	-- 	这是指向带有最小尺寸 size*num 字节的内存块的指针。
+size	-- 	这是要读取的每个元素的大小，以字节为单位。
+num	-- 	这是元素的个数，每个元素的大小为 size 字节。
+stream 	-- 	这是指向 FILE 对象的指针，该 FILE 对象指定了一个输入流。
+
+返回值：
+成功读取的元素总数会以 size_t 对象返回，size_t 对象是一个整型数据类型。如果总数与 num 参数不同，则可能发生了一个错误或者到达了文件末尾。
+
+调用格式:
+fread( ptr,   size,   num,  stream);
+
+举例：
+	char str[256] = "12345";
+	FILE* pf = fopen("..\\FILE_TEST\\test.txt","rb");
+	if(pf==NULL)
+	{
+		printf("%s\n",strerror(errno));
+		return 0;
+	}
+	else
+	{
+		fread(str,sizeof(char),4,pf);
+		printf(str);
+	}
+	fclose(pf);
+	pf=NULL;
+
+注意事项：
+1.返回值如果不等于 num参数，可能是发生了错误或者读取到了文件末尾
+2.该函数既可以操作 二进制文件 , 又可以操作 文本文件 
+3.ptr指向的内存块至少要有 size*num 字节大小的空间
+
+建议：
+1.检查返回值
+
+自己编写的版本：
+一辈子写不出
+该模板应用于 2023.8.27 22:00后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )
