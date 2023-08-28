@@ -11,7 +11,7 @@ size_t offsetof( structName, memberName );
 offsetof( structName, memberName );
 
 说明：
-structName		-	结构体类型名
+structName	-	结构体类型名
 memberName	-	结构体成员名( 注意是名字，不是变量 )
 
 举例：
