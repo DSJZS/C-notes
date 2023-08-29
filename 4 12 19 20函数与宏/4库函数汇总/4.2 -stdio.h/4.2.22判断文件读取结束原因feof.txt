@@ -1,0 +1,39 @@
+函数的头文件: stdio.h
+
+函数的作用：
+当文件读取结束时，判断是不是遇到文件末尾才结束的( 根据函数返回值，如 fgetc判断是不是返回 EOF，fread判断返回值是不是等于目标读取个数 )
+
+函数声明：
+int feof(FILE *stream);
+
+参数说明：
+stream -- 这是指向 FILE 对象的指针，该 FILE 对象标识了流。
+
+返回值：
+如果是遇到文件末尾结束的，该函数返回一个非零值，否则返回零。
+
+调用格式:
+feof( stream);
+
+举例：
+	FILE* pf = fopen("..\\FILE_TEST\\test.txt","r");
+	char c = fgetc(pf);
+	if(ferror(pf))
+		printf("I/O error when reading\n");
+	if(feof(pf))
+		printf("End of file reached successfully\n");
+	fclose(pf);
+	pf=NULL;
+
+注意事项：
+1.该函数并非用于判断文件指针位置是否到达文明末尾
+2.如果判断不是遇到文件末尾才结束的，会返回 0
+3.使用时要配合 ferror函数，比如 fgetc返回EOF时，既能表达达到文件末尾，也能表达读取失败，feof函数无法判断具体是那种，均会返回非零值，所以要用ferror先判断
+
+建议：
+1.检查返回值
+2.配合 ferror函数使用
+
+自己编写的版本：
+一辈子写不出
+该模板应用于 2023.8.27 22:00后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )

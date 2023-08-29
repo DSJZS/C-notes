@@ -1,0 +1,36 @@
+函数的头文件: stdio.h
+
+函数的作用：
+把一个描述性错误消息输出到标准错误 stderr。首先输出字符串 str，后跟一个冒号，然后是一个空格，之后就是错误信息。
+相比 strerror更方便
+
+函数声明：
+void perror(const char *str);
+
+参数说明：
+str 	--	 这是 C语言字符串，包含了一个自定义消息，将显示在原本的错误消息之前。
+
+返回值：
+该函数不返回任何值。
+
+调用格式:
+perror( str);
+
+举例：
+	FILE* pf = fopen("..\\FILE_TEST\\test.txt","r");
+	if(pf==NULL)
+	{
+		perror("file opening"); // 若没有上述文件，会输出 file opening: No such file r directory
+	}
+	fclose(pf);
+	pf=NULL;
+
+注意事项：
+1.str字符串在错误信息前输出
+
+建议：
+1.个人觉得可以替代 strerror
+
+自己编写的版本：
+一辈子写不出
+该模板应用于 2023.8.27 22:00后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )

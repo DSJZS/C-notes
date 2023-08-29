@@ -1,0 +1,41 @@
+函数的头文件: stdio.h
+
+函数的作用：设置流 stream 的文件位置为从给定的位置偏移 offset字节的地方，参数 offset 意味着从给定的 whence 位置查找的字节数。
+
+函数声明：
+int fseek(FILE *stream, long int offset, int whence);
+
+参数说明：
+stream 	-- 	这是指向 FILE 对象的指针，该 FILE 对象标识了流。
+offset 	-- 	这是相对 whence 的偏移量，以字节为单位。
+whence 	-- 	这是表示开始添加偏移 offset 的位置。它一般指定为下列常量之一：
+常量		描述
+SEEK_SET	文件的开头
+SEEK_CUR	文件指针的当前位置
+SEEK_END	文件的末尾
+
+返回值：
+如果成功，则该函数返回零，否则返回非零值。
+
+调用格式:
+fseek( stream,  offset,  whence);
+
+举例：
+	FILE* pf = fopen("..\\FILE_TEST\\test.txt","r");
+	if(pf==NULL)
+		printf("%s\n", strerror(errno));
+	fseek(pf,2,SEEK_SET);
+	printf("%c\n", fgetc(pf));
+	fclose(pf);
+	pf=NULL;
+
+注意事项：
+1.如果失败会返回非零值
+2.偏移量不要过大，偏移到文件末尾之后
+
+建议：
+1.检查返回值
+
+自己编写的版本：
+一辈子写不出
+该模板应用于 2023.8.27 22:00后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )
