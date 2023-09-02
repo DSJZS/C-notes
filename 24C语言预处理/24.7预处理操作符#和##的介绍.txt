@@ -1,0 +1,26 @@
+# 和 ##
+{
+如果想把参数插入到字符串中，就需要用到 # 和 ##
+1. #
+ # 能把一个宏参数变为对应的字符串
+如
+#define PRINT(X) printf("the value of"#X" is %d\n", X)
+借来下写这样的代码
+	int i = 100;
+	PRINT(i);  // 输出 the value of i is 100
+原理是PRINT(i)会被替换为如下内容
+printf("the value of""i"" is %d\n", i)
+C语言相邻字符串会拼接，所以最终变为
+printf("the value of i is %d\n", i)
+因此说 # 能把一个宏参数变为对应的字符串
+
+2. ## 
+## 可以把位于它两边的符号合成一个符号，它允许宏定义从分离的文本片段创建标识符。
+如
+#define CAT(x,y) x##y
+借来下写这样的代码
+	int year = 2023;
+	printf("year = %d\n", CAT(ye,ar));  // 输出 year = 2023
+原理是编译器会先将 ## 左右两边的文本并且到一起, CAT(ye,er),会变为 ye##er, 最后变为 year
+*注意：这样的连接必须产生一个合法的标识符。否则其结果就是未定义的。
+}

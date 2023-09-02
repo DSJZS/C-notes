@@ -1,0 +1,10 @@
+#undef 这条指令用于移除一个宏定义。
+用法： #undef NAM // 如果现存的一个名字需要被重新定义，那么它的旧名字首先要被移除
+
+如下	
+定义了一个无参宏 MAX
+#define MAX 100
+又有如下内容
+	printf("MAX = %d\n", MAX); // ok,正常输出
+#undef MAX
+	printf("MAX = %d\n", MAX); // error,MAX未被声明

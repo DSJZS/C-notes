@@ -27,8 +27,8 @@ printf("%d\n", offsetof(struct Stu, tele)); // 输出 20
 注意：
 1.注意填的是结构体类型和成员名，不要填成结构体类型和成员变量了
 
-<建议>
-
 自己编写的版本：
+#define OFFSETOF(struct_name,member_name) (int)(&(((struct_name*)0)->member_name))
+// 利用指针可行，不能使一个类型强制类型转换为结构体类型(结构体指针可以)
 
 该模板应用于 2023.8.21 20:25后编写的函数与宏的介绍( 这句话也是未完成标识，未完成的笔记不应删除这行字 )

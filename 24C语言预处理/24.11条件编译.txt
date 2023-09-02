@@ -1,0 +1,43 @@
+在编译一个程序的时候可以用条件编译指令很方便得将一条语句(一组语句)编译或者放弃
+常见的条件编译指令(常量表达式为真就满足)：
+1.单个分支的条件编译
+#if 常量表达式	// 常量表达式为真执行下列语句，为假不执行
+	// ...
+#endif
+// 常量表达式由预处理器求值
+如：
+#define __DEBUG__ 1	
+#if __DEBUG__
+	// ... 执行语句
+#endif
+
+2.多个分支的条件编译(类似if语句，上面为真就不执行下面的)
+#if 常量表达式	// 常量表达式为真执行下列语句，为假不执行
+	// ...
+#elif 常量表达式	// 常量表达式为真执行下列语句，为假不执行
+	// ...
+#else 		// 上列常量表达式均为假执行下列语句，为假不执行
+	// ...
+#endif
+
+3.判断是否被定义( 也均需要配合 #endif )
+// 如果symbol被定义，无论真假执行语句
+#if defined(symbol)
+#ifdef symbol
+// 如果symbol没有被定义，执行语句
+#if !defined(symbol)
+#ifndef symbol
+
+4.嵌套指令( 类似 if语句 嵌套 )
+#if defined(OS_UNIX)
+	#ifdef OPTION1
+		unix_version_option1();
+	#endif
+	#ifdef OPTION2
+		unix_version_option2();
+	#endif
+#elif defined(OS_UNIX)
+	#ifdef OPTION2
+		unix_version_option2();
+	#endif
+#endif
