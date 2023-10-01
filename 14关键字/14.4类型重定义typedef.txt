@@ -2,17 +2,17 @@
 可以将一个变量定义为一个定的变量
 新的变量与这个变量等价
 语法为 typedef 原变量 新变量;
-如 typedef unsigned int u_int;
+如 typedef unsigned int u-int;
    unsigned int num1;
-   u_int num2;
+   u-int num2;
    // 此时num1,num2类型相同
 
 *注意：函数指针等类型重定义参考如下
-如将 void(*)(int) 简化为 pfun_t
+如将 void(*)(int) 简化为 pfun-t
 
-typedef void(*pfun_t)(int);
+typedef void(*pfun-t)(int);
 
-pfun_t signal( int, pfun_t);	// signal是一个函数 返回类型是 void(*)(int) ,参数的类型是 int 和 void(*)(int) 
+pfun-t signal( int, pfun-t);	// signal是一个函数 返回类型是 void(*)(int) ,参数的类型是 int 和 void(*)(int) 
 
 typedef作用域：
 如果放在所有函数之外，它的作用域就是从它定义开始直到文件尾；
