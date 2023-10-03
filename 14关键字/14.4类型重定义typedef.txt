@@ -7,12 +7,13 @@
    u-int num2;
    // 此时num1,num2类型相同
 
-*注意：函数指针等类型重定义参考如下
+*注意：函数指针类型重定义参考如下
 如将 void(*)(int) 简化为 pfun-t
-
 typedef void(*pfun-t)(int);
-
 pfun-t signal( int, pfun-t);	// signal是一个函数 返回类型是 void(*)(int) ,参数的类型是 int 和 void(*)(int) 
+
+*注意：数组类型重定义参考如下
+typedef int Array[3];		// 之后 Array 类型即为一个有三个整形元素的数组
 
 typedef作用域：
 如果放在所有函数之外，它的作用域就是从它定义开始直到文件尾；
