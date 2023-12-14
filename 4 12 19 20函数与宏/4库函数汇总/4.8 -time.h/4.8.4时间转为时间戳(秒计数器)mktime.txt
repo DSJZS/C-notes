@@ -1,0 +1,54 @@
+函数的头文件: time.h
+
+函数的作用：日期时间转换为秒计数器（当地时间）、同时还会通过传入的指针将tm结构体的星期数据转换为对应的星期
+
+函数声明：
+time_t mktime(struct tm *timeptr);
+
+参数说明：
+timeptr -- 指向 tm 结构的指针，该结构带有被填充的时间信息。
+struct tm {
+   int tm_sec;         /* 秒，范围从 0 到 59                */
+   int tm_min;         /* 分，范围从 0 到 59                */
+   int tm_hour;        /* 小时，范围从 0 到 23                */
+   int tm_mday;        /* 一月中的第几天，范围从 1 到 31                    */
+   int tm_mon;         /* 月份，范围从 0 到 11                */
+   int tm_year;        /* 自 1900 起的年数                */
+   int tm_wday;        /* 一周中的第几天，范围从 0 到 6                */
+   int tm_yday;        /* 一年中的第几天，范围从 0 到 365                    */
+   int tm_isdst;       /* 夏令时                        */    
+};
+
+返回值：
+该函数返回自 1970 年 1 月 1 日以来持续时间的秒数(Unix时间戳)。如果发生错误，则返回 -1 值。
+
+调用格式:
+int ret = mktime(&info);
+
+举例：
+    int ret;
+    struct tm info;
+    char buffer[80];
+
+    info.tm_year = 2021 - 1900;
+    info.tm_mon = 7 - 1;
+    info.tm_mday = 4;
+    info.tm_hour = 0;
+    info.tm_min = 0;
+    info.tm_sec = 1;
+    info.tm_isdst = -1;
+
+    ret = mktime(&info);
+    if( ret == -1 ) {
+        printf("Error: unable to make time using mktime\n");
+    } else {
+        printf("%d\n", ret);	//	输出 1625328001
+    }
+
+注意事项：
+1.如果发生错误，则返回 -1 值。
+2.转换依据当地时间，而非伦敦时间(格林尼治时间)
+3.同时还会通过传入的指针将tm结构体的星期数据转换为对应的星期
+
+建议：
+1.转换后检查返回值是否为-1来判断是否由错误产生

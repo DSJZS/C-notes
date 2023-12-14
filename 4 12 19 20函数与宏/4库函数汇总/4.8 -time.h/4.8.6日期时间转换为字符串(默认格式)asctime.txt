@@ -1,0 +1,39 @@
+函数的头文件: time.h
+
+函数的作用：日期时间转换为字符串（默认格式）
+
+函数声明：
+char *asctime(const struct tm *timeptr);
+
+参数说明：
+timeptr -- 指向 tm 结构的指针，该结构带有被填充的时间信息。
+struct tm {
+   int tm_sec;         /* 秒，范围从 0 到 59                */
+   int tm_min;         /* 分，范围从 0 到 59                */
+   int tm_hour;        /* 小时，范围从 0 到 23                */
+   int tm_mday;        /* 一月中的第几天，范围从 1 到 31                    */
+   int tm_mon;         /* 月份，范围从 0 到 11                */
+   int tm_year;        /* 自 1900 起的年数                */
+   int tm_wday;        /* 一周中的第几天，范围从 0 到 6                */
+   int tm_yday;        /* 一年中的第几天，范围从 0 到 365                    */
+   int tm_isdst;       /* 夏令时                        */    
+};
+
+返回值：
+该函数返回一个 C 字符串，该字符串包含了可读格式的日期和时间信息。
+
+调用格式:
+char *time_str = asctime(&info);
+
+举例：
+   struct tm t;
+
+   t.tm_sec    = 10;
+   t.tm_min    = 10;
+   t.tm_hour   = 6;
+   t.tm_mday   = 25;
+   t.tm_mon    = 2;
+   t.tm_year   = 89;
+   t.tm_wday   = 6;
+
+   puts(asctime(&t));
